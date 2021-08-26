@@ -262,6 +262,10 @@ p {
   background-position: center;
   background-attachment: var(--hero-attachment);
 }
+.hero-image-content {
+  width: 100%;
+  min-width: 320px;
+}
 
 .hero-image-opacity{
   width: 100%;
