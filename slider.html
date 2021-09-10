@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container-slider-auto {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        overflow-x: hidden;
+        position: relative;
+      }
+
+      .slide-auto {
+        width: 100%;
+      }
+
+      .slider-auto {
+        margin: 2rem auto;
+        padding: 0;
+        object-fit: cover;
+        text-align: center;
+        list-style: none;
+        width: 400%;
+        height: 400px;
+        display: flex;
+
+      }
+
+      .slider-auto img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        margin-left: -100%;
+      }
+
+      .slider-btn {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.5);
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 30px;
+        font-weight: bold;
+        text-align: center;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+
+      .slider-btn:hover {
+        color: var(--first-color);
+        background-color: var(--second-color);
+      }
+
+      .slider-btn_left {
+        right: 10px;
+      }
+
+      .slider-btn_right {
+        left: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="container-slider-auto">
+      <ul class="slider-auto" id="slider-auto">
+        <li class="slide-auto" id="slide-auto">
+          <img class="avatar" src="assets/venta1.jpg" alt="Cliente 1" />
+        </li>
+        <li class="slide-auto" id="slide-auto">
+          <img class="avatar" src="assets/venta2.jpg" alt="Cliente 2" />
+        </li>
+        <li class="slide-auto" id="slide-auto">
+          <img class="avatar" src="assets/about-1.jpg" alt="Cliente 3" />
+        </li>
+        <li class="slide-auto" id="slide-auto">
+          <img class="avatar" src="assets/customer-1.jpg" alt="Cliente 4" />
+        </li>
+      </ul>
+      <div class="slider-btn slider-btn_left" id="btn_right">&#62;</div>
+      <div class="slider-btn slider-btn_right" id="btn_left">&#60;</div>
+    </section>
+
+    <script>
+
+      const $slider = document.querySelector("#slider-auto");
+      let $sliderSection = document.querySelectorAll(".slide-auto");
+      let $sliderSectionLast = $sliderSection[$sliderSection.length - 1];
+
+      const $btnLeft = document.querySelector("#btn_left");
+      const $btnRight = document.querySelector("#btn_right");
+
+      $slider.insertAdjacentElement("afterbegin", $sliderSectionLast);
+      function next() {
+        console.log("hola");
+        let $sliderSectionFirst = document.querySelectorAll(".slide-auto")[0];
+        $slider.style.marginLeft = "-200%";
+        $slider.style.transition = "all 0.5s";
+        setTimeout(function () {
+          $slider.style.transition = "none";
+          $slider.insertAdjacentElement("beforeend", $sliderSectionFirst);
+          $slider.style.marginLeft = "-100%";
+        }, 500);
+      }
+
+      function prev() {
+        console.log("hola");
+        let $sliderSection = document.querySelectorAll(".slide-auto");
+        let $sliderSectionLast = $sliderSection[$sliderSection.length - 1];
+        $slider.style.marginLeft = "0%";
+        $slider.style.transition = "all 0.5s";
+        setTimeout(function () {
+          $slider.style.transition = "none";
+          $slider.insertAdjacentElement("afterbegin", $sliderSectionLast);
+          $slider.style.marginLeft = "-100%";
+        }, 500);
+      }
+
+      $btnRight.addEventListener("click", function () {
+        next();
+      });
+      $btnLeft.addEventListener("click", function () {
+        prev();
+      });
+
+      setInterval(function () {
+        next();
+      }, 5000);
+    </script>
+  </body>
+</html>

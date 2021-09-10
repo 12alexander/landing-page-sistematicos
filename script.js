@@ -26,7 +26,7 @@
   $form.addEventListener("submit",(e) => {
     e.preventDefault();
     $loader.classList.remove("none");
-    fetch("https://formsubmit.co/ajax/alex18escorpio@gmail.com",{
+    fetch("https://formsubmit.co/ajax/soporte@sistematicosenterprise.com",{
       method:"POST",
       body: new FormData(e.target)
     })
@@ -49,3 +49,61 @@
   });
   
 })(document);
+
+
+/* ********* slider auto ************ */
+
+const TIEMPO_INTERVALO = 5;
+let instancia_intervalo = null;
+let contador = 1;
+let slider;
+document.addEventListener('DOMContentLoaded', init);
+
+function init(){
+    const containerSlider = document.querySelector('.container-slider');
+    const arrowRight = document.querySelector('.arrow-slider-right');
+    const arrowLeft = document.querySelector('.arrow-slider-left');
+    slider = document.querySelectorAll('.slider-content');
+    readySlider();
+    containerSlider.addEventListener('mouseenter',stopAnimated);
+    containerSlider.addEventListener('mouseleave',continueAnimated);
+    arrowRight.addEventListener('click',nextImage);
+    arrowLeft.addEventListener('click',prevImage);
+  }
+
+function readySlider(){
+    instancia_intervalo = setInterval(() => moveImage(slider), TIEMPO_INTERVALO * 1000);
+}
+
+function stopAnimated(){
+  clearInterval(instancia_intervalo);  
+}
+
+function continueAnimated(){
+  readySlider();
+}
+
+function nextImage(){
+  moveImage();
+}
+
+function prevImage(){
+  contador-=2;
+  moveImage();
+}
+
+function moveImage(){
+  validarContador();
+  slider.forEach(element => {
+      element.style.transform = `translateX(${contador*-100}vw)`;
+  });
+  contador++;
+}
+
+function validarContador(){
+  if(contador >= slider.length){
+    contador = 0;
+  } else if (contador < 0){
+    contador = slider.length - 1;
+  }
+}
