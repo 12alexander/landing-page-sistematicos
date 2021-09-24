@@ -1,6 +1,7 @@
 /* *********** Custom Properties **************** */
 :root{
   --first-color:  #fc842f;
+  --first-first-alpha-color: rgba(252, 132, 47, 0.75);
   --first-alpha-color: rgba(30, 176, 234, 0.75);
   --second-color: #0764A8;
   --second-alpha-color: rgba(20, 25, 45, 0.75);
@@ -282,7 +283,12 @@ p {
 /* ******* Contact Form *********** */
 
 .contact{
-  background-color: var(--second-color);
+  background-color: var(--white-color);
+}
+
+.contact > .container{
+  display: grid;    
+  align-content: center;  
 }
 
 
@@ -290,6 +296,7 @@ p {
 .contact-form{
   margin: 2rem auto;
   padding: 1rem;
+  width: 100%;
   max-width: 800px;
 }
 
@@ -588,6 +595,10 @@ p {
   text-align: left;
 }
 
+.footer-section-content img{
+  width: 10rem;
+  padding-bottom: 0.5rem;
+}
 
 .gray-scale{
   filter: saturate(100%);
@@ -698,10 +709,8 @@ p {
   }
 
   .footer-section{
-    display: grid;
-    grid-template-columns: repeat(3, 33%);
-    justify-content: space-between;    
-    
+    padding-top: 2rem;
+   padding-bottom: 2rem; 
     
   }
   .footer-section-content:last-child{
@@ -736,7 +745,6 @@ p {
   justify-content: space-around;
   align-items: center; 
 }
-
 
 .contact-card > svg{
   fill: var(--first-color);
@@ -783,6 +791,7 @@ p {
 
 
 
+
 .logo img{  
   color: var(--first-color);
   font-weight: bold;
@@ -792,11 +801,33 @@ p {
 }
 
 
+.saleProduct-card{
+  position: relative;    
+  width: 99%;
+  margin: 0.1rem auto;
+  display: block;
+  text-decoration: none;
+}
+
 .sale-card{
   position: relative;    
   width: 99%;
   margin: 0.1rem auto;
   display: block;
+  text-decoration: none;
+}
+
+.sale-card-title{  
+  text-align: center;
+  padding-bottom: 0.5rem;
+  color: var(--first-color);
+  font-weight: bold;
+}
+
+.saleProduct-card img{
+  width: 100%;
+  height: 290px;
+  object-fit: cover;    
 }
 
 .sale-card img{
@@ -804,6 +835,7 @@ p {
   height: 290px;
   object-fit: cover;    
 }
+
 
 .img-modal{
   width: 100%;  
@@ -816,16 +848,18 @@ p {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%; 
+  height: 90%; 
   padding: 1rem;
-  background-color: var(--first-alpha-color);
+  background-color: var(--first-first-alpha-color);
   color: var(--white-color);
   opacity: 0;
   pointer-events: none;
   transition: all 0.5s ease-in-out;
+  margin-top: 1.7rem;
+  
 }
 
-.sale-card:hover .sale-card-info {
+.sale-card:hover .sale-card-info {  
   opacity: 1;
   pointer-events: auto;
 }
@@ -862,12 +896,7 @@ p {
   color: var(--first-color);
 }
 
-.sale > .container{
-  display: grid;
-  grid-template-columns:repeat(2,1fr);
-  justify-content: space-between;
-  align-content: center;
-}
+
 
 .sale .section-title{
   grid-column: span 2;
@@ -945,6 +974,10 @@ p {
     justify-content: space-between;    
   }
 
+  .contact-cards :last-child{
+    grid-column: span 2;
+  } 
+
   .sale-modal{
     max-width: 800px;
     flex-direction: row;    
@@ -954,18 +987,30 @@ p {
     margin-left: 1rem;
     align-self: center;
   }
+  .saleProduct-card img{
+    padding-left: 20%;
+    width: 100%;
+    height: 350px;
+    object-fit: cover;    
+  }
 
   .sale > .container{
     display: grid;
-    grid-template-columns:repeat(3,33%);
+    grid-template-columns:repeat(2,50%);
     justify-content: space-between;
     align-content: center;
   }
 
-  .sale .section-title{
-    grid-column: span 3;
+  .saleProduct > .container{
+    display: grid;
+    grid-template-columns:repeat(2,50%);
+    justify-content: space-between;
+    align-content: center;
   }
 
+  .saleProduct .section-title-solid-background{
+    grid-column: span 2;
+  }
 
     /*banner**********************************************************************************/
 
@@ -993,7 +1038,11 @@ p {
   }
 
 
-
+  .img-modal{
+    width: 50%;  
+    height: 290px;
+    object-fit: cover; 
+  }
 
   .logo-head{    
     max-width: var(--max-width);
@@ -1073,6 +1122,19 @@ p {
     grid-column: span 2;
     color: #000;
   }
+
+
+  .footer-section-content-marcas{    
+    display: grid;
+    grid-template-columns: repeat(2,50%);
+    justify-items: center;
+  }
+
+  .footer-section-content-marcas img{        
+    width: 150px;
+    height: 100px;
+    object-fit: contain ;  
+  }
   
 
 }
@@ -1088,21 +1150,31 @@ p {
   }
 
   .ubicanos{
-    padding-top: 4rem;
+    
+  }
+
+  .ubicanos > .container{
+    display: grid;    
+    align-content: center;  
   }
 
   .contact-cards{    
-    grid-template-columns: repeat(4, 24%); 
+    grid-template-columns: repeat(3, 33%); 
     text-align: center;
     align-content: center;
-  }
-  .contact-card{  
-    display: grid;  
-    grid-template-columns: repeat(2, 50%);  
-    justify-items: center;
-    align-items: center;
+    
   }
 
+  .contact-card{  
+    display: grid;  
+    grid-template-columns: 20% 80%;  
+    justify-items: center;
+    align-items: center;    
+  }
+  .contact-cards :last-child{
+    grid-column: span 1;
+    
+  }  
 
 
 
@@ -1190,14 +1262,15 @@ p {
 
   .sale > .container{
     display: grid;
-    grid-template-columns:repeat(4,1fr);
+    grid-template-columns:repeat(3,33%);
     justify-content: space-between;
     align-content: center;
   }
 
   .sale .section-title{
-    grid-column: span 4;
+    grid-column: span 3;
   }
+
   
   .services > .container{
     display: grid;
@@ -1214,6 +1287,18 @@ p {
     grid-column: span 3;
   }
 
+  .saleProduct-card img{
+    padding-left: 20%;
+    width: 100%;
+    height: 450px;
+    object-fit: cover;    
+  }
+
+  .footer-section-content-marcas{    
+    display: grid;
+    grid-template-columns: repeat(3,33%);
+    justify-items: center;
+  }
 
 
 }
