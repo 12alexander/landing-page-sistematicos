@@ -20,7 +20,7 @@
   --max-width: 1200px;
   --header-height: 5rem;
 
-  --height-slider: 500px;
+  --height-slider: 600px;
   --width-slider: 100%;
   --color-opacity-dark: rgba(0,0,0,.4);
   --color-opacity-ligth: rgba(255,255,242,0.2);
@@ -767,7 +767,7 @@ p {
   padding: 0.5rem;
   text-align: center;
   color:  var(--white-color);
-  background-color: var(--third-color);
+  background-color: #5F1A37;
 }
 
 .header{
@@ -966,7 +966,11 @@ p {
 
 /*termino del banner*******************************************************************************/
 
-
+  .footer-section-content-marcas img{        
+    width: 12rem;
+    padding-bottom: 0.5rem;
+    object-fit: contain ;  
+  }
 @media screen and (min-width:768px) {
   .contact-cards{
     display: grid;
@@ -1130,12 +1134,16 @@ p {
     justify-items: center;
   }
 
+  .footer-section-content-marcas-title{
+    grid-column: span 2;    
+  }
+
   .footer-section-content-marcas img{        
-    width: 150px;
-    height: 100px;
+    width: 12rem;
+    padding-bottom: 0.5rem;
     object-fit: contain ;  
   }
-  
+
 
 }
 
@@ -1298,8 +1306,13 @@ p {
     display: grid;
     grid-template-columns: repeat(3,33%);
     justify-items: center;
+    
   }
-
+  .footer-section-content-marcas img{
+    width: 15rem;
+    padding-bottom: 0.5rem;
+    
+  }
 
 }
 
